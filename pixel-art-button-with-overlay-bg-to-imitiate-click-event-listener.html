@@ -75,6 +75,29 @@
             transform: translate(-50%, -50%) rotateX(20deg) translateZ(-50px);
         }
 
+        .pipe-wrapper {
+            position: absolute;
+            top: 55%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 200px;
+            object-fit: contain;
+            object-position: center;
+            perspective: 300px;
+            z-index: 5;
+        }
+
+        .pipe {
+            position: absolute;
+            display: block;
+            left: 50%;
+            transform: translateX(-50%) translateZ(-100px) rotate(180deg) rotateX(35deg) !important;
+            max-width: 100% !important;
+            height: 550px;
+            image-rendering: pixelated;
+        }
+
         .overlay {
             position: absolute;
             width: 100%;
@@ -109,7 +132,7 @@
             border-radius: 5px;
             padding: 5px;
             box-shadow: 0px 5px 12px -5px rgba(4, 4, 4, .5);
-            z-index: 0;
+            z-index: 9999;
             transition: all .5s ease;
         }
 
@@ -192,8 +215,12 @@
         <img src="./pixel-btn-1-0.png" alt="">
         <img src="./pixel-btn-1-1.png" alt="">
     </div>
+
     <div class="overlay toggler">
         <div class="message"></div>
+        <div class="pipe-wrapper">
+            <img src="./26b3a4455ef19f8.png" class="pipe" alt="">
+        </div>
     </div>
     <script>
         let state = false
@@ -265,7 +292,7 @@
                 messageEl.classList.add("active")
             }, 10)
             setTimeout(() => {
-                messageEl.remove()
+                // messageEl.remove()
             }, 1000)
         }
 
